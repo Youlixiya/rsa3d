@@ -1,0 +1,72 @@
+{
+    "fern":{
+        "gs_source": "output/llff/fern/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/fern",
+        "feature_gs_source": "output/llff/fern/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/fern",
+        "mask_threshold": 0.80,
+        "reasoning_prompt": "the biggest tree"
+    },
+    "flower":{
+        "gs_source": "output/llff/flower/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/flower",
+        "feature_gs_source": "output/llff/flower/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/flower",
+        "mask_threshold": 0.75,
+        "reasoning_prompt": "what looks the most colorful"
+    },
+    "fortress":{
+        "gs_source": "output/llff/fortress/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/fortress",
+        "feature_gs_source": "output/llff/fortress/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/fortress",
+        "mask_threshold": 0.5,
+        "reasoning_prompt": "what seems to be made of metal"
+    },
+    "horns":{
+        "gs_source": "output/llff/horns/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/horns",
+        "feature_gs_source": "output/llff/horns/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/horns",
+        "mask_threshold": 0.65,
+        "reasoning_prompt": "which is the biggest skeleton"
+    },
+    "leaves":{
+        "gs_source": "output/llff/leaves/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/leaves",
+        "feature_gs_source": "output/llff/leaves/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/leaves",
+        "mask_threshold": 0.85,
+        "reasoning_prompt": "which leaf is closest to camera"
+    },
+    "orchids":{
+        "gs_source": "output/llff/orchids/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/orchids",
+        "feature_gs_source": "output/llff/orchids/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/orchids",
+        "mask_threshold": 0.90,
+        "reasoning_prompt": "the flower at the center of the view"
+    },
+    "room":{
+        "gs_source": "output/llff/room/point_cloud/iteration_10000/point_cloud.ply",
+        "colmap_dir": "data/nerf_llff_data/room",
+        "feature_gs_source": "output/llff/room/point_cloud/iteration_10000/16_feature_gs_10000.pt",
+        "gs_feature_dim": 16,
+        "images": "images_4",
+        "save_path": "output/16_llff_masks/room",
+        "mask_threshold": 0.65,
+        "reasoning_prompt": "what can be used to play videos"
+    }
+}

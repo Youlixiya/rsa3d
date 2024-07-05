@@ -1,0 +1,789 @@
+{
+    "annotations": [
+        {
+            "file_name": "DJI_20200223_163548_810.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.887738049030304,
+                    "area": 146061
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163551_210.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.887738049030304,
+                    "area": 153679
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163551_990.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.887738049030304,
+                    "area": 154792
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163553_010.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.887738049030304,
+                    "area": 156573
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163553_790.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.887738049030304,
+                    "area": 154899
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163554_630.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8789618611335754,
+                    "area": 189094
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163555_770.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8789618611335754,
+                    "area": 186156
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163556_700.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8789618611335754,
+                    "area": 185170
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163557_660.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8789618611335754,
+                    "area": 183448
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163558_500.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8789618611335754,
+                    "area": 184942
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163559_325.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8679560422897339,
+                    "area": 186975
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163600_150.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8679560422897339,
+                    "area": 185817
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163600_960.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8679560422897339,
+                    "area": 184466
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163601_770.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8679560422897339,
+                    "area": 181523
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163602_580.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8679560422897339,
+                    "area": 166604
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163603_540.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.875752866268158,
+                    "area": 160206
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163604_605.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.875752866268158,
+                    "area": 155790
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163605_490.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.875752866268158,
+                    "area": 162043
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163606_270.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.875752866268158,
+                    "area": 166254
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163607_050.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.875752866268158,
+                    "area": 172203
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163607_906.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 180179
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163608_715.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 180460
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163609_435.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 182174
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163610_185.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 181464
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163611_160.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 180282
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163614_400.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 170549
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 64627
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163615_330.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 172595
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 65395
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163616_140.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 175073
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 63247
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163616_980.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 175175
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 62865
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163617_790.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8726046681404114,
+                    "area": 174083
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 61995
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163618_570.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785238265991211,
+                    "area": 172225
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 63517
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163619_411.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785238265991211,
+                    "area": 167194
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 66261
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163620_700.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785238265991211,
+                    "area": 159474
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 70302
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163621_570.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785238265991211,
+                    "area": 164652
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 73051
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163622_290.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785238265991211,
+                    "area": 167586
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 72451
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163623_310.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785837888717651,
+                    "area": 172696
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 71704
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163624_060.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785837888717651,
+                    "area": 174861
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 72128
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163624_765.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785837888717651,
+                    "area": 176259
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 72123
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163625_486.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785837888717651,
+                    "area": 179375
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 78712
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163627_196.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8785837888717651,
+                    "area": 173802
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 68105
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163639_916.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8735796213150024,
+                    "area": 169457
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 61482
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163640_741.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8735796213150024,
+                    "area": 173709
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 62021
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163641_521.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8735796213150024,
+                    "area": 180538
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 61087
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163642_330.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8735796213150024,
+                    "area": 183247
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 60961
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163643_411.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8735796213150024,
+                    "area": 187535
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 61159
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163644_295.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 182061
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 60494
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163645_060.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 179559
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 61133
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163645_961.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 179183
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 60325
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163646_755.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 175618
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 60839
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163647_626.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 172261
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8790913820266724,
+                    "area": 62616
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163648_601.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 171631
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8776066303253174,
+                    "area": 72032
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163649_576.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 182700
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8776066303253174,
+                    "area": 79084
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163651_301.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 182955
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8776066303253174,
+                    "area": 74229
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163652_711.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 183487
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8776066303253174,
+                    "area": 74605
+                }
+            ]
+        },
+        {
+            "file_name": "DJI_20200223_163654_571.jpg",
+            "segments_info": [
+                {
+                    "category_id": 0,
+                    "id": 14802278,
+                    "score": 0.8737542629241943,
+                    "area": 174842
+                },
+                {
+                    "category_id": 0,
+                    "id": 15351475,
+                    "score": 0.8776066303253174,
+                    "area": 67554
+                }
+            ]
+        }
+    ]
+}
