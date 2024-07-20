@@ -16,11 +16,11 @@
                              "hand", 
                              "red bag", 
                              "white sheet"],
-        "reasoning_prompts": ["what is the yellow fruit", 
-                             "what can be worn on the foot", 
-                             "what can be used to take photos", 
-                             "what is the part of person, excluding other objects", 
-                             "what is red and leather", 
+        "reasoning_prompts": ["which is the yellow fruit", 
+                             "which can be worn on the foot", 
+                             "which can be used to take photos", 
+                             "which is the part of person, excluding other objects", 
+                             "which is red and leather", 
                              "where is a good place to lie down"]
     },
     "bench":{
@@ -41,12 +41,12 @@
                              "pebbled concrete wall", 
                              "Portuguese egg tart", 
                              "wood"],
-        "reasoning_prompts": ["Who has long blond hair", 
+        "reasoning_prompts": ["who has long blond hair", 
                             "which is green fruit", 
                             "which one is the model of the vehicle",
-                            "what is like an animal",
-                            "what is made of many stones", 
-                            "what is like baked food",
+                            "which is an animal",
+                            "which is made of many stones", 
+                            "which is like baked food",
                             "what is made of wood"]
     },
     "lawn":{
@@ -66,12 +66,12 @@
                              "black headphone", 
                              "hand soap", 
                              "green lawn"],
-        "reasoning_prompts": ["what is the red fruit", 
-                            "what is worn on the head and is white", 
-                            "what can be uesd to bind books",
-                            "what is worn on the ear and is black",
-                            "what is bottled", 
-                            "what is made of a lot of grass"]
+        "reasoning_prompts": ["which is the red fruit", 
+                            "which is worn on the head and is white", 
+                            "which can be uesd to bind books",
+                            "which is worn on the ear and is black",
+                            "which is bottled", 
+                            "which is made of a lot of grass"]
     },
     "room":{
         "gs_source": "output/ovs3d/room/point_cloud/iteration_10000/point_cloud.ply",
@@ -90,12 +90,12 @@
                              "rabbit", 
                              "dinosaur", 
                              "baseball"],
-        "reasoning_prompts": ["What is made of red wood", 
-                             "what is a yellow animal doll", 
-                             "what can be uesd to hold a water bottle",
-                             "what has long grey ears",
-                             "what has a long tail", 
-                             "what is spherical"]
+        "reasoning_prompts": ["which is red table", 
+                             "which is a yellow animal doll", 
+                             "which can be uesd to hold a water bottle",
+                             "which has long grey ears",
+                             "which has a long tail", 
+                             "which is spherical and white"]
     },
     "sofa":{
         "gs_source": "output/ovs3d/sofa/point_cloud/iteration_10000/point_cloud.ply",
@@ -114,11 +114,11 @@
                              "a red Nintendo Switch joy-con controller", 
                              "Gundam", 
                              "Xbox wireless controller"],
-        "reasoning_prompts": ["what is the yellow doll", 
+        "reasoning_prompts": ["which is the yellow doll", 
                              "what is made of cards stacked together", 
                              "where can I sit down",
-                             "What can be used to play games and is small red",
-                             "what is a robot toy",
-                             "what can be used to play games and is large and white"]
+                             "which is red and looks like a controller",
+                             "which is a robot toy",
+                             "which can be used to play games and is large and white"]
     }
 }

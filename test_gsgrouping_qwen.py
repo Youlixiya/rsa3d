@@ -151,7 +151,6 @@ def get_masks_in_box(gaussian, box, image_np, instance_feature):
     new_unique_indexes = []
     for index in unique_indexes:
         mask_bool = (instance_index_map == index)
-        mask_bool = mask_bool
         # print(mask_bool.shape)
         # mask_box = get_box_by_mask(mask_bool)
         mask_image_np = image_np.copy()
@@ -420,6 +419,14 @@ if __name__ == '__main__':
                 with torch.no_grad():
                     render_feature = render(cam, gaussian, pipe, feature_bg, render_feature=True, override_feature=gaussian.gs_features)['render_feature']
                     instance_feature = F.normalize(render_feature.reshape(-1, h*w), dim=0).reshape(-1, h, w)
+                    if rendered_feature_pca_dict is None:
+                        rendered_feature_pca_dict = get_pca_dict(render_feature)
+                    if instance_feature_pca_dict is None:
+                        instance_feature_pca_dict = get_pca_dict(instance_feature)
+                    os.makedirs(os.path.join(args.save_path, cam.image_name), exist_ok=True)
+                    Image.fromarray((apply_colormap(render_feature.permute(1, 2, 0), ColormapOptions(colormap="pca", pca_dict=rendered_feature_pca_dict)).cpu().numpy() * 255).astype(np.uint8)).save(os.path.join(args.save_path, cam.image_name, f'rendered_feature_pca.jpg'))
+                    Image.fromarray((apply_colormap(instance_feature.permute(1, 2, 0), ColormapOptions(colormap="pca", pca_dict=instance_feature_pca_dict)).cpu().numpy() * 255).astype(np.uint8)).save(os.path.join(args.save_path, cam.image_name, f'instance_feature_pca.jpg'))
+                    
                     image_name = cam.image_name
                     image_path = os.path.join(img_root, f'{cam.image_name}.{img_suffix}')
                     save_path = os.path.join(args.save_path, cam.image_name, reasoning_prompt)

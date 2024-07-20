@@ -31,7 +31,7 @@ CUDA_VISIBLE_DEVICES=4 python test_ovs3d.py --cfg_path scripts/16_ovs3d_test_con
 
 python test_clip_ovs3d.py --cfg_path scripts/16_ovs3d_test_config.json
 
-python test_ovs3d_qwen.py --cfg_path scripts/16_ovs3d_test_config.json --train_views 1
+python test_ovs3d_qwen.py --cfg_path scripts/16_ovs3d_test_config.json --train_views 5
 python test_ovs3d_qwen.py --cfg_path scripts/16_ovs3d_test_config.json --train_views 2
 python test_ovs3d_qwen.py --cfg_path scripts/16_ovs3d_test_config.json --train_views 4
 python test_ovs3d_qwen.py --cfg_path scripts/16_ovs3d_test_config.json --train_views 4 --clip_type box
