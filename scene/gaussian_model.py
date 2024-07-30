@@ -469,22 +469,25 @@ class GaussianFeatureModel(GaussianModel):
     def __init__(self,
                  sh_degree : int,
                  gs_feature_dim=16,
-                #  instance_feature_dim=16,
+                 clip_feature_dim=512,
                  device='cuda:0'):
         super().__init__(sh_degree)
         self.gs_feature_dim = gs_feature_dim
+        self.clip_feature_dim = clip_feature_dim
         # self.instance_feature_dim = instance_feature_dim
         # self.instance_feature_decoder = MLP(gs_feature_dim, self.instance_feature_dim, self.instance_feature_dim, 2).to(device)
-        # self.instance_feature_decoder = nn.Conv2d(gs_feature_dim, self.instance_feature_dim, 1).to(device)
+        self.clip_feature_decoder = nn.Conv2d(gs_feature_dim, self.clip_feature_dim, 1).to(device)
         self.device = device
-        
-    def set_instance_embeddings(self, instance_num):
-        self.instance_num = instance_num
-        self.instance_embeddings = torch.randn((instance_num, self.gs_feature_dim), dtype=torch.float, device=self.device).requires_grad_(True)
     
-    def set_clip_embeddings(self, clip_embeddings, aggregation_clip_embeddings):
-        self.clip_embeddings = clip_embeddings
-        self.aggregation_clip_embeddings = aggregation_clip_embeddings
+    def set_instance_num(self, instance_num):
+        self.instance_num = instance_num
+    # def set_clip_embeddings(self, instance_num):
+    #     self.instance_num = instance_num
+    #     self.clip_embeddings = torch.randn((instance_num, 512), dtype=torch.float, device=self.device).requires_grad_(True)
+    
+    # def set_clip_embeddings(self, clip_embeddings, aggregation_clip_embeddings):
+    #     self.clip_embeddings = clip_embeddings
+    #     self.aggregation_clip_embeddings = aggregation_clip_embeddings
     
     def set_instance_colors(self, instance_colors):
         self.instance_colors = instance_colors
@@ -560,9 +563,10 @@ class GaussianFeatureModel(GaussianModel):
         state = {
             'gs_features': self.gs_features.detach().cpu().numpy(),
             'instance_embeddings': self.instance_embeddings.detach().cpu().numpy(),
+            'clip_feature_decoder': self.clip_feature_decoder.state_dict(),
             # 'instance_feature_decoder': self.instance_feature_decoder.state_dict(),
-            'clip_embeddings': self.clip_embeddings,
-            'aggregation_clip_embeddings': self.aggregation_clip_embeddings,
+            # 'clip_embeddings': self.clip_embeddings,
+            # 'aggregation_clip_embeddings': self.aggregation_clip_embeddings,
             'instance_colors': self.instance_colors.cpu(),
             'instance_num': self.instance_num,
         }
@@ -576,10 +580,11 @@ class GaussianFeatureModel(GaussianModel):
         self.gs_features = nn.Parameter(torch.tensor(state['gs_features'], dtype=torch.float, device=self.device).requires_grad_(False))
         self.instance_embeddings = nn.Parameter(torch.tensor(state['instance_embeddings'], dtype=torch.float, device=self.device).requires_grad_(False))
         self.instance_embeddings = F.normalize(self.instance_embeddings, dim=-1)
+        self.clip_feature_decoder.load_state_dict(state['clip_feature_decoder'])
         self.instance_colors = state['instance_colors']
         self.instance_num = state['instance_num']
-        self.clip_embeddings = state['clip_embeddings']
-        self.aggregation_clip_embeddings = state['aggregation_clip_embeddings']
+        # self.clip_embeddings = F.normalize(state['clip_embeddings'], dim=-1)
+        # self.aggregation_clip_embeddings = state['aggregation_clip_embeddings']
         # self.instance_feature_decoder.load_state_dict(state['instance_feature_decoder'])
         
     
@@ -591,8 +596,9 @@ class GaussianFeatureModel(GaussianModel):
         #     ]
         # else:
         l = [
-            {'params': [self.gs_features], 'lr': training_args.instance_features_lr, "name": "instance_features"},
-            {'params': [self.instance_embeddings], 'lr': training_args.instance_embeddings_lr, "name": "instance_embeddings"},
+            {'params': [self.gs_features], 'lr': training_args.gs_features_lr, "name": "gs_features"},
+            # {'params': [self.clip_embeddings], 'lr': training_args.clip_embeddings_lr, "name": "clip_embeddings"},
+            {'params': self.clip_feature_decoder.parameters(), 'lr': training_args.clip_feature_decoder_lr, "name": "clip_feature_decoder"}
             # {'params': self.instance_feature_decoder.parameters(), 'lr': training_args.instance_feature_decoder_lr, "name": "instance_feature_decoder"},
         ]
 

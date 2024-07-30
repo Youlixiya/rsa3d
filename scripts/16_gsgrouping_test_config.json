@@ -59,7 +59,7 @@
         "clip_save_path": "output/16_gsgrouping_clip_masks/teatime",
         "text_query_threshold": [0.70, 0.67, 0.69, 0.65, 0.59, 0.43],
         "mask_threshold": [0.80, 0.86, 0.80, 0.80, 0.80, 0.80, 0.80, 0.80, 0.80, 0.80],
-        "clip_text_prompts": ["apple", 
+        "clip_text_prompts": ["red apple", 
                              "bag of cookies", 
                              "coffee mug", 
                              "cookies on a plate", 

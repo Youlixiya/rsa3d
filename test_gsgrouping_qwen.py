@@ -28,11 +28,16 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from segment_anything import sam_model_registry, SamPredictor
 COLORS = torch.tensor(generate_contrasting_colors(500), dtype=torch.uint8, device='cuda')
 torch.manual_seed(1234)
-def qwen_template0(prompt):
-    return f'Please output the name of the object that best matches the following text description. The text description : {prompt}.'
+# def qwen_template0(prompt):
+#     return f'Please output the name of the object that best matches the following text description. The text description : {prompt}.'
+
+qwen_template0 = "Infer the detail name of the target object from the text input, and give an explanation for the inferred result. Format of the output {'category':, 'explanation':}. The text description : "
 
 def qwen_template1(prompt):
     return f'Please grounding <ref> {prompt} </ref>'
+
+def clip_template(prompt):
+    return f'a photo of {prompt}'
 
 def extract_box(text, w, h):
     pattern = r'\((.*?)\)'
@@ -149,6 +154,7 @@ def get_masks_in_box(gaussian, box, image_np, instance_feature):
     unique_indexes, counts = torch.unique(instance_embeddings_index, return_counts=True)
     mask_images_np = []
     new_unique_indexes = []
+    # return unique_indexes
     for index in unique_indexes:
         mask_bool = (instance_index_map == index)
         # print(mask_bool.shape)
@@ -163,6 +169,7 @@ def get_masks_in_box(gaussian, box, image_np, instance_feature):
             continue
         mask_images_np.append(mask_image_np[box[1]: box[3], box[0]: box[2], :])
         new_unique_indexes.append(index)
+    # return new_unique_indexes
     return new_unique_indexes, mask_images_np
 
 def get_instance_embeddings_by_box(gaussian, box, instance_feature):
@@ -316,8 +323,8 @@ if __name__ == '__main__':
     # parser.add_argument("--gt_path", type=str, required=True)
     # parser.add_argument("--output_path", type=str, required=True)
     # parser.add_argument("--scene", type=str, required=True)
-    scene_names = ['figurines', 'ramen', 'teatime']
-    # scene_names = ['teatime']
+    # scene_names = ['figurines', 'ramen', 'teatime']
+    scene_names = ['teatime']
     args = parser.parse_args()
     metrics = 'Scene\tIoU\tAcc\n'
 
@@ -455,33 +462,39 @@ if __name__ == '__main__':
 
                     else:
                         try:
-                            category = reasoning_by_qwen(image_path, qwen_template0(reasoning_prompt))
+                            category_explanation = eval(reasoning_by_qwen(image_path, qwen_template0 + reasoning_prompt))
+                            category = category_explanation['category']
+                            explanation = category_explanation['explanation']
                             _, box, image_pil = reasoning_grouding_by_qwen(image_path, qwen_template1(reasoning_prompt))
                         except:
                             continue
                         reasoning_result = draw_rectangle(image_pil, [box])
                         reasoning_result.save(reasoning_results_save_path)
                         image_np = np.array(image_pil)
+
                         unique_indexes, mask_images_np = get_masks_in_box(gaussian, box, image_np, instance_feature)
-                        mask_clip_embeddings = []
+                        mask_clip_embeddings = gaussian.clip_embeddings[unique_indexes, :].half()
+                        # unique_indexes = get_masks_in_box(gaussian, box, image_np, instance_feature)
+                        # mask_clip_embeddings = []
                         for k in range(len(unique_indexes)):
                             mask_image_np = mask_images_np[k]
                             mask_image_pil = Image.fromarray(mask_image_np)
                             mask_image_pil.save(os.path.join(save_path, f'mask_image_{k}.png'))
-                            mask_image_tensor = preprocess(mask_image_pil).half().cuda()[None]
-                            mask_image_clip_embedding = clip_model.encode_image(mask_image_tensor)
-                            mask_image_clip_embedding_norm = mask_image_clip_embedding / mask_image_clip_embedding.norm(dim=-1, keepdim=True)
-                            mask_clip_embeddings.append(mask_image_clip_embedding_norm)
-                        category_embeddings = clip_model.encode_text(tokenizer([category, 'background']).to('cuda:0'))
+                        #     mask_image_tensor = preprocess(mask_image_pil).half().cuda()[None]
+                        #     mask_image_clip_embedding = clip_model.encode_image(mask_image_tensor)
+                        #     mask_image_clip_embedding_norm = mask_image_clip_embedding / mask_image_clip_embedding.norm(dim=-1, keepdim=True)
+                        #     mask_clip_embeddings.append(mask_image_clip_embedding_norm)
+                        category_embeddings = clip_model.encode_text(tokenizer([clip_template(category)]).to('cuda:0'))
                         category_embeddings /= category_embeddings.norm(dim=-1, keepdim=True)
-                        mask_clip_embeddings = torch.cat(mask_clip_embeddings)
+                        # mask_clip_embeddings = torch.cat(mask_clip_embeddings)
                         similarity_score = category_embeddings @ mask_clip_embeddings.T
-                        similarity_score = torch.softmax(similarity_score, dim=0)
+                        similarity_score = torch.softmax(similarity_score, dim=1)
                         print(similarity_score)
-                        similarity_score = similarity_score[[0], :]
+                        # similarity_score = similarity_score[[0], :]
                         selected_index = similarity_score.argmax(-1)
                         seleced_instance_index = unique_indexes[selected_index]
                         cache['category'] = category
+                        cache['explanation'] = explanation
                         cache['box'] = box
                         cache['category_embeddings'] = category_embeddings
                         cache['mask_clip_embeddings'] = mask_clip_embeddings

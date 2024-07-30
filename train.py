@@ -65,8 +65,9 @@ def training(args, dataset, opt, pipe, saving_iterations):
     mask_dataset = MaskDataset(args.colmap_dir, scene.cameras.copy(), mask_dir=f'masks{downscale}')
     instance_num = len(mask_dataset.instance_colors)
     print(f'instance num: {instance_num}')
-    gaussians.set_instance_embeddings(len(mask_dataset.instance_colors))
-    gaussians.set_clip_embeddings(mask_dataset.clip_embeddings, mask_dataset.aggregation_clip_embeddings)
+    # gaussians.set_clip_embeddings(len(mask_dataset.instance_colors))
+    # gaussians.set_clip_embeddings(mask_dataset.clip_embeddings, mask_dataset.aggregation_clip_embeddings)
+    gaussians.set_instance_num(len(mask_dataset.instance_colors))
     gaussians.set_instance_colors(mask_dataset.instance_colors)
     gaussians.feature_training_setup(opt)
     progress_bar = tqdm(range(cur_iter, opt.feature_iterations), desc="Training Feature GS progress")
@@ -89,6 +90,7 @@ def training(args, dataset, opt, pipe, saving_iterations):
         # print(image_names)
         viewpoint_cam = viewpoint_stack.pop(index)
         rendered_feature = render(viewpoint_cam, gaussians, pipe, feature_bg_color, render_feature=True, override_feature=gaussians.gs_features)['render_feature']
+        rendered_clip_feature = gaussians.clip_feature_decoder(rendered_feature[None])[0]
         # if gaussians.feature_aggregator is not None:
         #     with torch.no_grad():
         #         render_pkg = render(viewpoint_cam, gaussians, pipe, bg_color)
@@ -97,7 +99,10 @@ def training(args, dataset, opt, pipe, saving_iterations):
         # instance_feature = gaussians.instance_feature_decoder(rendered_feature[None])[0]
         h, w = rendered_feature.shape[1:]
         instance_masks = mask_dataset.instance_masks[viewpoint_cam.image_name].reshape(h * w)
+        clip_feature = F.interpolate(mask_dataset.clip_features[viewpoint_cam.image_name].permute(2, 0, 1)[None], size=(h, w))[0].permute(1, 2, 0).reshape(h * w, -1)
+        # clip_embeddings = mask_dataset.clip_embeddings[viewpoint_cam.image_name]
         instance_feature = F.normalize(rendered_feature.reshape(-1, h * w).permute(1, 0), dim=-1)
+        rendered_clip_feature = F.normalize(rendered_clip_feature.reshape(-1, h * w).permute(1, 0), dim=-1)
         # instance_feature = instance_feature.reshape(-1, h * w).permute(1, 0)
 
         #instance contrastive loss
@@ -139,9 +144,12 @@ def training(args, dataset, opt, pipe, saving_iterations):
         with torch.no_grad():
             unique_instance_index = torch.unique(instance_masks)
             gt_batch_instance_labels = torch.zeros_like(instance_masks)
+            
             # gt_indexs = torch.zeros(instance_num)
             instance_embeddings = torch.zeros(instance_num, gaussians.gs_feature_dim)
             batch_instance_embeddings = []
+            # batch_clip_embeddings = []
+            # gt_batch_clip_embeddings = []
             # index_masks = []
             for i, instance_index in enumerate(unique_instance_index):
                 mask = instance_masks==instance_index
@@ -158,6 +166,8 @@ def training(args, dataset, opt, pipe, saving_iterations):
                 # queue.append(instance_index, instance_embeddings)
                 # if not args.global_contrastive or 0 in cache:
                 batch_instance_embeddings.append(instance_embedding)
+                # batch_clip_embeddings.append(gaussians.clip_embeddings[instance_index])
+                # gt_batch_clip_embeddings.append(clip_embeddings[instance_index])
                 # if gaussians.instance_embeddings[instance_index].sum() == 0: 
                 #     gaussians.instance_embeddings[instance_index] = instance_embedding
                 # else:
@@ -175,6 +185,13 @@ def training(args, dataset, opt, pipe, saving_iterations):
         #     global_contrastive_loss = F.cross_entropy(global_instance_feature_matrix, gt_global_instance_labels)
         #     loss = global_contrastive_loss
         # else:
+        # batch_clip_embeddings = F.normalize(torch.stack(batch_clip_embeddings), dim=-1)
+        # gt_batch_clip_embeddings = torch.stack(gt_batch_clip_embeddings)
+        # gt_batch_clip_labels = torch.arange(0, len(batch_clip_embeddings)).cuda()
+        # batch_clip_matrix = batch_clip_embeddings @ gt_batch_clip_embeddings.T
+        #clip
+        clip_l1_loss = F.l1_loss(rendered_clip_feature, clip_feature)
+
         batch_instance_embeddings = F.normalize(torch.stack(batch_instance_embeddings), dim=-1)
         gt_batch_instance_labels = gt_batch_instance_labels.long()
         batch_instance_feature_matrix = instance_feature @ batch_instance_embeddings.T
@@ -182,8 +199,10 @@ def training(args, dataset, opt, pipe, saving_iterations):
         # cosine_similarity = batch_instance_feature_matrix[torch.arange(gt_batch_instance_labels.shape[0], device='cuda'), gt_batch_instance_labels].mean()
         
         # cosine_similarity_loss = torch.ones_like(cosine_similarity, device='cuda') - cosine_similarity
-        batch_contrastive_loss = F.cross_entropy(batch_instance_feature_matrix, gt_batch_instance_labels)
-        loss = batch_contrastive_loss
+        instance_contrastive_loss = F.cross_entropy(batch_instance_feature_matrix, gt_batch_instance_labels)
+        # clip_contrastive_loss = F.cross_entropy(batch_clip_matrix, gt_batch_clip_labels)
+        # clip_l1_loss = F.l1_loss(batch_clip_embeddings, gt_batch_clip_embeddings)
+        loss = instance_contrastive_loss + clip_l1_loss
             
         
         # instance_contrastive_loss = F.cross_entropy(instance_feature_matrix, instance_masks_batch)

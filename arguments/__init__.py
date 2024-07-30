@@ -73,6 +73,7 @@ class PipelineParams(ParamGroup):
 class OptimizationParams(ParamGroup):
     def __init__(self, parser):
         self.iterations = 10_000
+        # self.feature_iterations = 10_000
         self.feature_iterations = 10_000
         self.position_lr_init = 0.00016
         self.position_lr_final = 0.0000016
@@ -89,9 +90,10 @@ class OptimizationParams(ParamGroup):
         self.temperature = 1
         self.queue_len = 4096
         self.gs_features_lr = 0.001
-        self.instance_features_lr = 0.001
-        self.instance_embeddings_lr = 0.001
-        self.instance_feature_decoder_lr = 0.001
+        # self.instance_features_lr = 0.001
+        self.clip_embeddings_lr = 0.001
+
+        self.clip_feature_decoder_lr = 0.001
         # self.extra_feature_lr_init = 0.0001
         # self.extra_feature_lr_final = 0.00001
         # self.extra_feature_lr_delay_mult = 0.01
